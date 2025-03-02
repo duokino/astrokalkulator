@@ -1,0 +1,57 @@
+{
+    "home": {
+        "latitude": 1.8063,
+        "longitude": 102.9666,
+        "elevation": 35,
+        "remarks": "No 30, Jalan EH 10, Taman Evergreen Height, Batu Pahat, Johor"
+    },
+
+    "bp": {
+        "latitude": 1.8472,
+        "longitude": 102.9346,
+        "elevation": 5,
+        "remarks": "Batu Pahat, Johor"
+    },
+
+    "paritraja": {
+        "latitude": 1.8710,
+        "longitude": 103.1170,
+        "elevation": 7,
+        "remarks": "Parit Raja, Johor"
+    },
+
+    "pontian": {
+        "latitude": 1.4802,
+        "longitude": 103.3843,
+        "elevation": 0,
+        "remarks": "Tambak Pontian, Johor"
+    },
+
+    "menarakl": {
+        "latitude": 3.1528,
+        "longitude": 101.7037,
+        "elevation": 355,
+        "remarks": "Menara KL, Kuala Lumpur"
+    },
+
+    "telukkemang": {
+        "latitude": 2.4627,
+        "longitude": 101.8495,
+        "elevation": 23,
+        "remarks": "Balai Cerap Teluk Kemang, Negeri Sembilan"
+    },
+
+    "pulauperak": {
+        "latitude": 5.6835,
+        "longitude": 98.9389,
+        "elevation": 0,
+        "remarks": "Pulau Perak, Kedah"
+    },
+
+    "labuan": {
+        "latitude": 5.2787,
+        "longitude": 115.1736,
+        "elevation": 100,
+        "remarks": "Menara UMS, Labuan"
+    }
+}
