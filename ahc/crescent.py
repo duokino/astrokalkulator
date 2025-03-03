@@ -13,7 +13,7 @@ __all__ = ["get_map_moon_alt_atsunset", "get_map_moon_elongation_atsunset", "get
 
 global ts, ephem
 ts = api.load.timescale()
-ephem = api.load_file('de421.bsp')
+ephem = api.load_file('database/de421.bsp')
 
 
 def get_map_moon_alt_atsunset(year, month, day, min_lat=-60.0, max_lat=70.0, min_long=-180.0, max_long=180.0, factor=0.5):
