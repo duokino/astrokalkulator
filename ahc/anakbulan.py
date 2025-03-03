@@ -5,6 +5,7 @@ from datetime import datetime
 from datetime import timedelta
 from calendar import monthrange
 from skyfield.units import Angle
+import os
 
 from .sunmoon import *
 
@@ -12,8 +13,13 @@ __all__ = ["get_map_moon_alt_atsunset", "get_map_moon_elongation_atsunset", "get
 			"get_map_moon_width_atsunset", "crescent_data", "get_map_moon_arcv_atsunset", "get_map_moon_properties_atsunset"]
 
 global ts, ephem
+# Load ephemeris data
 ts = api.load.timescale()
-ephem = api.load_file('database/de421.bsp')
+
+# Find the latest .bsp file
+bsp_files = [f for f in os.listdir('database') if f.endswith('.bsp')]
+latest_bsp = max(bsp_files) if bsp_files else 'de421.bsp'  # Fallback to de421.bsp if none found
+ephem = api.load_file(f'database/{latest_bsp}')
 
 
 def get_map_moon_alt_atsunset(year, month, day, min_lat=-60.0, max_lat=70.0, min_long=-180.0, max_long=180.0, factor=0.5):
@@ -361,8 +367,8 @@ def crescent_data(hijri_year, hijri_month, latitude, longitude, elevation, time_
 	sunset_utc = convert_localtime_to_utc(time_zone_str, local_datetime=sunset_local)
 	delta_time_tz = calc_timedelta_seconds(datetime(ijtima_utc.year, ijtima_utc.month, ijtima_utc.day, ijtima_utc.hour, ijtima_utc.minute, ijtima_utc.second), datetime(ijtima_local.year, ijtima_local.month, ijtima_local.day, ijtima_local.hour, ijtima_local.minute, ijtima_local.second))
 	
-	print ('\n')
-	print ('\n')
+	#print ('\n')
+	#print ('\n')
 	print ('\n')
 	print ('                       Data Hilal bagi %s %d' % (hijri_months_string[int(hijri_month)-1],hijri_year))
 	print ("          menggunakan metod pengiraan Accurate Hijri Calculator (AHC)")
@@ -380,7 +386,7 @@ def crescent_data(hijri_year, hijri_month, latitude, longitude, elevation, time_
 		print ('   - Time zone: '+time_zone_str+' '+print_timedelta_tz(delta_time_tz))
 	else:
 		print ('   - Time zone: '+time_zone_str+' +'+print_timedelta_tz(delta_time_tz))
-	print ('   - Keadaan Pembiasan Atmosfera => Suhu: %d °C  Tekanan: %d mb' % (temperature_C, pressure_mbar))
+	#print ('   - Keadaan Pembiasan Atmosfera => Suhu: %d °C  Tekanan: %d mb' % (temperature_C, pressure_mbar))
 	print ('\n============================================================================================\n')
 	print ('  Waktu Ijtima: %d-%d-%d %02d:%02d:%02d (Waktu Tempatan) atau %d-%d-%d %02d:%02d:%02d UTC' % (ijtima_local.day,ijtima_local.month,ijtima_local.year,ijtima_local.hour,ijtima_local.minute,ijtima_local.second,ijtima_utc.day,ijtima_utc.month,ijtima_utc.year,ijtima_utc.hour,ijtima_utc.minute,ijtima_utc.second))
 	print ('\n  - Waktu Matahari terbenam: %02d:%02d:%02d          - Waktu Bulan terbenam        : %02d:%02d:%02d' % (sunset_local.hour,sunset_local.minute,sunset_local.second, moonset_local.hour,moonset_local.minute,moonset_local.second))
@@ -393,7 +399,7 @@ def crescent_data(hijri_year, hijri_month, latitude, longitude, elevation, time_
 	print ('  - Parallax horizon Bulan : '+print_angle(parallax))
 	print ('')
 	print ('  *Semua data berdasarkan keadaan tempatan di lokasi pemerhati')
-	print ('')
+	#print ('')
 
 
 
