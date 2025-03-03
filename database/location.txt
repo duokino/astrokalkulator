@@ -1,12 +1,4 @@
 {
-    "home": {
-        "latitude": 1.8063,
-        "longitude": 102.9666,
-        "elevation": 35,
-	"timezone": "Asia/Kuala_Lumpur",
-        "remarks": "No 30, Jalan EH 10, Taman Evergreen Height, Batu Pahat, Johor"
-    },
-
     "bp": {
         "latitude": 1.8472,
         "longitude": 102.9346,
