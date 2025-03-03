@@ -29,7 +29,7 @@ def get_sun_altitude(ephem, location, t):
 def get_prayer_times(year, month, day, latitude, longitude, elevation, time_zone, loc_name, asr_method="shafi"):
     # Load ephemeris data
     ts = api.load.timescale()
-    ephem = api.load_file('de421.bsp')
+    ephem = api.load_file('database/de421.bsp')
     
     # Set location
     location = set_location(latitude, longitude, elevation)
