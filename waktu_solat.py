@@ -44,7 +44,12 @@ def get_prayer_times(year, month, day, latitude, longitude, elevation, time_zone
         t_asr = ts.utc(t_asr.utc_datetime() + timedelta(minutes=1))
     asr_utc = t_asr.utc_datetime()
     
-    maghrib_utc = sunset_utc
+    # Adjust Maghrib time to when the whole sun is below the horizon (-1.066°) because Sun's apparent radius (~0.2665°) and refraction effect (~0.566° at horizon)
+    t_maghrib = ts.utc(sunset_utc.year, sunset_utc.month, sunset_utc.day, sunset_utc.hour, sunset_utc.minute)
+    while get_sun_altitude(ephem, location, t_maghrib) > -1.066:
+        t_maghrib = ts.utc(t_maghrib.utc_datetime() + timedelta(minutes=1))
+    maghrib_utc = t_maghrib.utc_datetime()
+    
     t_isha = ts.utc(maghrib_utc.year, maghrib_utc.month, maghrib_utc.day, maghrib_utc.hour)
     while get_sun_altitude(ephem, location, t_isha) > -18:
         t_isha = ts.utc(t_isha.utc_datetime() + timedelta(minutes=1))
@@ -70,7 +75,7 @@ def generate_monthly_prayer_times(year, month, latitude, longitude, elevation, t
     print(f"\n{'Waktu Solat bagi bulan ' + month_name + ' ' + str(year):^82}")
     print(f"{'bagi kawasan ' + loc_name:^82}")
     print("=" * 82)
-    print("  Tarikh      Subuh      Syuruk      Zohor      Asar     Maghrib     Isyak")
+    print("  Tarikh     Subuh       Syuruk      Zohor        Asar       Maghrib     Isyak")
     print("-" * 82)
     
     for day in range(1, days_in_month + 1):
@@ -82,7 +87,7 @@ def generate_monthly_prayer_times(year, month, latitude, longitude, elevation, t
 parser = argparse.ArgumentParser(description="Generate monthly Islamic prayer times.")
 parser.add_argument("year", type=int, nargs="?", default=datetime.today().year, help="Year (default: current year)")
 parser.add_argument("month", type=int, nargs="?", default=datetime.today().month, help="Month (default: current month)")
-parser.add_argument("--location", type=str, default="bp", help="Predefined location name (e.g., Perak, Kedah, Johor)")
+parser.add_argument("--location", default="home", type=str, help="Predefined location name (e.g., Perak, Kedah, Johor)")
 parser.add_argument("--latitude", type=float, help="Latitude of the location")
 parser.add_argument("--longitude", type=float, help="Longitude of the location")
 parser.add_argument("--elevation", type=float, help="Elevation in meters")
