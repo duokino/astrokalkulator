@@ -22,7 +22,7 @@ def main():
     parser.add_argument("hijri_month", type=int, help="Hijri month")
     
     # Location selection argument
-    parser.add_argument("--location", type=str, choices=LOCATIONS.keys(), default="home", help="Select a predefined location")
+    parser.add_argument("--location", type=str, choices=LOCATIONS.keys(), default="bp", help="Select a predefined location")
 
     # Day offset argument
     parser.add_argument("--offset", type=float, default=0, help="Day offset (default: 0)")    
