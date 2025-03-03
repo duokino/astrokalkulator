@@ -71,7 +71,11 @@ def get_prayer_times(year, month, day, latitude, longitude, elevation, time_zone
     asr_utc = t_asr.utc_datetime()
     
     # 5. Maghrib (Same as Sunset)
-    maghrib_utc = sunset_utc
+    # Adjust Maghrib time to when the whole sun is below the horizon (-1.066°) because Sun's apparent radius (~0.2665°) and refraction effect (~0.566° at horizon)
+    t_maghrib = ts.utc(sunset_utc.year, sunset_utc.month, sunset_utc.day, sunset_utc.hour, sunset_utc.minute)
+    while get_sun_altitude(ephem, location, t_maghrib) > -1.066:
+        t_maghrib = ts.utc(t_maghrib.utc_datetime() + timedelta(minutes=1))
+    maghrib_utc = t_maghrib.utc_datetime()
     
     # 6. Calculate Isha (when Sun is -18° below horizon, step by 1 minute)
     t_isha = ts.utc(maghrib_utc.year, maghrib_utc.month, maghrib_utc.day, maghrib_utc.hour)
@@ -106,7 +110,7 @@ def get_prayer_times(year, month, day, latitude, longitude, elevation, time_zone
 # Argument Parser
 parser = argparse.ArgumentParser(description="Get Islamic prayer times for a given location and date.")
 parser.add_argument("--date", type=str, default=datetime.today().strftime("%Y-%m-%d"), help="Date in YYYY-MM-DD format")
-parser.add_argument("--location", type=str, default="bp", help="Predefined location name (e.g., Perak, Kedah, Johor)")
+parser.add_argument("--location", type=str, default="home", help="Predefined location name (e.g., Perak, Kedah, Johor)")
 parser.add_argument("--latitude", type=float, help="Latitude of the location")
 parser.add_argument("--longitude", type=float, help="Longitude of the location")
 parser.add_argument("--elevation", type=float, help="Elevation in meters")
