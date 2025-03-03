@@ -21,7 +21,7 @@ def get_sun_altitude(ephem, location, t):
 
 def get_prayer_times(year, month, day, latitude, longitude, elevation, time_zone, asr_method="shafi"):
     ts = api.load.timescale()
-    ephem = api.load_file('de421.bsp')
+    ephem = api.load_file('database/de421.bsp')
     location = set_location(latitude, longitude, elevation)
 
     fajr_utc = fajr_time_utc(location, year, month, day)
