@@ -5,6 +5,7 @@ from datetime import datetime
 from datetime import timedelta
 from pytz import timezone
 from skyfield.units import Angle
+import os
 
 __all__ = ["list_hijri_months", "hijri_month", "set_location", "convert_utc_to_localtime", "convert_localtime_to_utc", "sunrise_sunset_utc",
 			"sunrise_sunset_local", "sun_position_time_utc", "sun_position_time_local", "moon_position_time_utc", "moon_position_time_local", 
@@ -14,8 +15,13 @@ __all__ = ["list_hijri_months", "hijri_month", "set_location", "convert_utc_to_l
 			"fajr_time_local", "calc_timedelta_seconds"]
 
 global ts, ephem
+# Load ephemeris data
 ts = api.load.timescale()
-ephem = api.load_file('database/de421.bsp')
+
+# Find the latest .bsp file
+bsp_files = [f for f in os.listdir('database') if f.endswith('.bsp')]
+latest_bsp = max(bsp_files) if bsp_files else 'de421.bsp'  # Fallback to de421.bsp if none found
+ephem = api.load_file(f'database/{latest_bsp}')
 
 def list_hijri_months(print_list=False):
 	hijri_months = ['Muharram', 'Shafar', 'Rabiul Awwal', 'Rabiuts Tsani', 'Jumadil Ula', 'Jumadil Akhir', 'Rajab', 'Syaban', 'Ramadhan', 'Syawal', 'Dzulqadah', 'Dzulhijjah']
