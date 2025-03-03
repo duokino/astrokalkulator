@@ -5,6 +5,7 @@ from datetime import datetime
 from datetime import timedelta
 from calendar import monthrange
 from skyfield.units import Angle
+import os
 
 from .sunmoon import *
 
@@ -12,8 +13,13 @@ __all__ = ["get_map_moon_alt_atsunset", "get_map_moon_elongation_atsunset", "get
 			"get_map_moon_width_atsunset", "crescent_data", "get_map_moon_arcv_atsunset", "get_map_moon_properties_atsunset"]
 
 global ts, ephem
+# Load ephemeris data
 ts = api.load.timescale()
-ephem = api.load_file('database/de421.bsp')
+
+# Find the latest .bsp file
+bsp_files = [f for f in os.listdir('database') if f.endswith('.bsp')]
+latest_bsp = max(bsp_files) if bsp_files else 'de421.bsp'  # Fallback to de421.bsp if none found
+ephem = api.load_file(f'database/{latest_bsp}')
 
 
 def get_map_moon_alt_atsunset(year, month, day, min_lat=-60.0, max_lat=70.0, min_long=-180.0, max_long=180.0, factor=0.5):
