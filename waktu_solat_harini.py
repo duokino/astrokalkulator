@@ -106,7 +106,7 @@ def get_prayer_times(year, month, day, latitude, longitude, elevation, time_zone
 # Argument Parser
 parser = argparse.ArgumentParser(description="Get Islamic prayer times for a given location and date.")
 parser.add_argument("--date", type=str, default=datetime.today().strftime("%Y-%m-%d"), help="Date in YYYY-MM-DD format")
-parser.add_argument("--location", type=str, default="home", help="Predefined location name (e.g., Perak, Kedah, Johor)")
+parser.add_argument("--location", type=str, default="bp", help="Predefined location name (e.g., Perak, Kedah, Johor)")
 parser.add_argument("--latitude", type=float, help="Latitude of the location")
 parser.add_argument("--longitude", type=float, help="Longitude of the location")
 parser.add_argument("--elevation", type=float, help="Elevation in meters")
