@@ -3,7 +3,7 @@ import json
 from ahc.anakbulan import crescent_data
 
 # Load predefined locations from location.txt
-LOCATIONS_FILE = "location.txt"
+LOCATIONS_FILE = "database/location.txt"
 
 def load_locations():
     try:
@@ -15,24 +15,24 @@ def load_locations():
 LOCATIONS = load_locations()
 
 def main():
-    parser = argparse.ArgumentParser(description="Calculate crescent data based on Hijri year and month.")
+    parser = argparse.ArgumentParser(description="Mengira data hilal berdasarkan tahun dan bulan Hijriah.")
     
     # Required arguments
-    parser.add_argument("hijri_year", type=int, help="Hijri year")
-    parser.add_argument("hijri_month", type=int, help="Hijri month")
+    parser.add_argument("hijri_year", type=int, help="Tahun Hijriah")
+    parser.add_argument("hijri_month", type=int, help="Bulan Hijriah")
     
     # Location selection argument
-    parser.add_argument("--location", type=str, choices=LOCATIONS.keys(), default="bp", help="Select a predefined location")
+    parser.add_argument("--location", type=str, choices=LOCATIONS.keys(), default="home")
 
     # Day offset argument
     parser.add_argument("--offset", type=float, default=0, help="Day offset (default: 0)")    
 
     # Optional manual input arguments
-    parser.add_argument("--latitude", type=float, help="Latitude (overrides location selection)")
-    parser.add_argument("--longitude", type=float, help="Longitude (overrides location selection)")
-    parser.add_argument("--elevation", type=float, help="Elevation in meters (overrides location selection)")
+    parser.add_argument("--latitude", type=float, help="Latitud lokasi")
+    parser.add_argument("--longitude", type=float, help="Longitud lokasi")
+    parser.add_argument("--elevation", type=float, help="Elevation dalam meter")
     parser.add_argument("--time_zone", type=str, default="Asia/Kuala_Lumpur", help="Time zone (default: Asia/Kuala_Lumpur)")
-    parser.add_argument("--loc_name", type=str, help="Location name (default: selected location or custom)")
+    parser.add_argument("--loc_name", type=str, help="Nama lokasi (default: Pantai Minyak Beku)")
     
     args = parser.parse_args()
     
