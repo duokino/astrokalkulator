@@ -15,7 +15,7 @@ __all__ = ["list_hijri_months", "hijri_month", "set_location", "convert_utc_to_l
 
 global ts, ephem
 ts = api.load.timescale()
-ephem = api.load_file('de421.bsp')
+ephem = api.load_file('database/de421.bsp')
 
 def list_hijri_months(print_list=False):
 	hijri_months = ['Muharram', 'Shafar', 'Rabiul Awwal', 'Rabiuts Tsani', 'Jumadil Ula', 'Jumadil Akhir', 'Rajab', 'Syaban', 'Ramadhan', 'Syawal', 'Dzulqadah', 'Dzulhijjah']
