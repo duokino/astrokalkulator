@@ -36,6 +36,7 @@ def check_for_update():
             print(f"\nNewer version found: {latest_file}")
             print(f"Current local version: {local_file if local_file else 'None'}")
             download = input(color_text(f"\nWould you like to download {latest_file}? (y/n): ", "33"))
+            print("")
             
             if download.lower() == "y":
                 download_file(url + latest_file, latest_file)
