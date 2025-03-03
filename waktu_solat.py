@@ -4,6 +4,7 @@ import argparse
 from datetime import datetime, timedelta
 from ahc.sunmoon import set_location, fajr_time_utc, sunrise_sunset_utc, convert_utc_to_localtime
 from skyfield import api, almanac
+import os
 
 def load_locations(file_path):
     try:
@@ -20,8 +21,14 @@ def get_sun_altitude(ephem, location, t):
     return altitude.degrees
 
 def get_prayer_times(year, month, day, latitude, longitude, elevation, time_zone, asr_method="shafi"):
+    # Load ephemeris data
     ts = api.load.timescale()
-    ephem = api.load_file('database/de421.bsp')
+    
+    # Find the latest .bsp file
+    bsp_files = [f for f in os.listdir('database') if f.endswith('.bsp')]
+    latest_bsp = max(bsp_files) if bsp_files else 'de421.bsp'  # Fallback to de421.bsp if none found
+    ephem = api.load_file(f'database/{latest_bsp}')
+    
     location = set_location(latitude, longitude, elevation)
 
     fajr_utc = fajr_time_utc(location, year, month, day)
@@ -84,17 +91,17 @@ def generate_monthly_prayer_times(year, month, latitude, longitude, elevation, t
     print("=" * 82)
 
 # Argument Parser
-parser = argparse.ArgumentParser(description="Generate monthly Islamic prayer times.")
-parser.add_argument("year", type=int, nargs="?", default=datetime.today().year, help="Year (default: current year)")
-parser.add_argument("month", type=int, nargs="?", default=datetime.today().month, help="Month (default: current month)")
-parser.add_argument("--location", default="home", type=str, help="Predefined location name (e.g., Perak, Kedah, Johor)")
-parser.add_argument("--latitude", type=float, help="Latitude of the location")
-parser.add_argument("--longitude", type=float, help="Longitude of the location")
-parser.add_argument("--elevation", type=float, help="Elevation in meters")
-parser.add_argument("--timezone", default="Asia/Kuala_Lumpur", type=str, help="Time zone (e.g., Asia/Kuala_Lumpur)")
+parser = argparse.ArgumentParser(description="Menjana waktu solat bulanan.")
+parser.add_argument("year", type=int, nargs="?", default=datetime.today().year, help="Tahun (default: tahun semasa)")
+parser.add_argument("month", type=int, nargs="?", default=datetime.today().month, help="Bulan (default: bulan semasa)")
+parser.add_argument("--location", default="home", type=str, help="contoh bp, pontian, paritraja")
+parser.add_argument("--latitude", type=float, help="Latitud lokasi")
+parser.add_argument("--longitude", type=float, help="Longitude lokasi")
+parser.add_argument("--elevation", type=float, help="Elevation dalam meter")
+parser.add_argument("--timezone", default="Asia/Kuala_Lumpur", type=str, help="Time zone (contoh Asia/Kuala_Lumpur)")
 
 args = parser.parse_args()
-locations = load_locations("location.txt")
+locations = load_locations("database/location.txt")
 
 if args.location and args.location in locations:
     loc_data = locations[args.location]
