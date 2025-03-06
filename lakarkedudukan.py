@@ -145,7 +145,7 @@ def plot_sun_moon(date, latitude, longitude, elevation, timezone, location_label
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Melakar kedudukan Matahari dan Bulan di horizon.")
     parser.add_argument("--date", required=True, help="Date in YYYY-MM-DD format")
-    parser.add_argument("--location", default="home", help="Location name from database/location.txt")
+    parser.add_argument("--location", default="bp", help="Location name from database/location.txt")
     parser.add_argument("--latitude", type=float, help="Latitude in degrees")
     parser.add_argument("--longitude", type=float, help="Longitude in degrees")
     parser.add_argument("--elevation", type=float, help="Elevation in meters")
