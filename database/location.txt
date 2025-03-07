@@ -53,5 +53,13 @@
         "elevation": 100,
 	"timezone": "Asia/Kuala_Lumpur",
         "remarks": "Menara UMS, Labuan"
+    },
+
+    "minyakbeku": {
+        "latitude": 1.7949,
+        "longitude": 102.8880,
+        "elevation": 5,
+	"timezone": "Asia/Kuala_Lumpur",
+        "remarks": "Pantai Minyak Beku, Batu Pahat, Johor"
     }
 }
