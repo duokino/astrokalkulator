@@ -121,7 +121,7 @@ def plot_sun_moon(date, latitude, longitude, elevation, timezone, location_label
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", required=True)
-    parser.add_argument("--location", default="home")
+    parser.add_argument("--location", default="bp")
     parser.add_argument("--latitude", type=float)
     parser.add_argument("--longitude", type=float)
     parser.add_argument("--elevation", type=float)
