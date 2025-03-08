@@ -108,7 +108,7 @@ def plot_shadow_direction(location, location_data, qibla_azimuth, original_date_
 
 def main():
     parser = argparse.ArgumentParser(description="Calculate sun shadow direction.")
-    parser.add_argument("--location", default="home", help="Location name from location.txt")
+    parser.add_argument("--location", default="bp", help="Location name from location.txt")
     parser.add_argument("--date", help="Date in YYYY-MM-DD format (default: today)")
     parser.add_argument("--time", help="Time in HH:MM:SS format (default: now)")
     args = parser.parse_args()
