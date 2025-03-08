@@ -94,7 +94,7 @@ def generate_monthly_prayer_times(year, month, latitude, longitude, elevation, t
 parser = argparse.ArgumentParser(description="Menjana waktu solat bulanan.")
 parser.add_argument("year", type=int, nargs="?", default=datetime.today().year, help="Tahun (default: tahun semasa)")
 parser.add_argument("month", type=int, nargs="?", default=datetime.today().month, help="Bulan (default: bulan semasa)")
-parser.add_argument("--location", default="home", type=str, help="contoh bp, pontian, paritraja")
+parser.add_argument("--location", default="bp", type=str, help="contoh bp, pontian, paritraja")
 parser.add_argument("--latitude", type=float, help="Latitud lokasi")
 parser.add_argument("--longitude", type=float, help="Longitude lokasi")
 parser.add_argument("--elevation", type=float, help="Elevation dalam meter")
