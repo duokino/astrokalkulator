@@ -46,7 +46,7 @@ def plot_shadow_direction(location, location_data, qibla_azimuth, original_date_
     timezone = pytz.timezone(location_data["timezone"])
     date_time = original_date_time
     
-    fig, ax = plt.subplots(figsize=(6, 6))
+    fig, ax = plt.subplots(figsize=(8, 8))
     plt.subplots_adjust(bottom=0.3)
     ax.set_xlim(-1.2, 1.2)
     ax.set_ylim(-1.2, 1.2)
@@ -77,7 +77,7 @@ def plot_shadow_direction(location, location_data, qibla_azimuth, original_date_
         ax.set_xticks([])
         ax.set_yticks([])
         ax.set_aspect('equal')
-        ax.set_title(f"Arah Bayang-Bayang Matahari\n{location_data['remarks']}\nTarikh: {date_time.strftime('%Y-%m-%d')}  Masa: {date_time.strftime('%I:%M:%S %p')}\nArah Qiblat: {qibla_azimuth:.2f}°")
+        ax.set_title(f"Arah Bayang-Bayang Matahari\n{location_data['remarks']}\nTarikh: {date_time.strftime('%Y-%m-%d')}  Masa: {date_time.strftime('%I:%M:%S %p')}\nArah Kiblat: {qibla_azimuth:.2f}°")
         
         circle = plt.Circle((0, 0), 1, color='black', fill=False, linewidth=1.5)
         ax.add_patch(circle)
@@ -93,15 +93,15 @@ def plot_shadow_direction(location, location_data, qibla_azimuth, original_date_
         x_sun, y_sun = -np.sin(sun_angle_rad), -np.cos(sun_angle_rad)
         x_qibla, y_qibla = np.sin(qibla_angle_rad), np.cos(qibla_angle_rad)
         
-        ax.arrow(0, 0, x_sun, y_sun, head_width=0.05, head_length=0.05, fc='black', ec='black')
-        ax.arrow(0, 0, 0, 1, head_width=0.05, head_length=0.05, fc='red', ec='red')
-        ax.arrow(0, 0, x_qibla, y_qibla, head_width=0.05, head_length=0.05, fc='green', ec='green')
+        ax.arrow(0, 0, x_sun, y_sun, head_width=0.05, head_length=0.1, fc='black', ec='black')
+        ax.arrow(0, 0, 0, 1, head_width=0.05, head_length=0.1, fc='red', ec='red')
+        ax.arrow(0, 0, x_qibla, y_qibla, head_width=0.05, head_length=0.1, fc='green', ec='green')
         
-        ax.text(0, 1.1, "N", ha='center', fontsize=12, fontweight='bold', color='red')
-        ax.text(1.1, 0, "E", va='center', fontsize=12, fontweight='bold')
-        ax.text(-1.1, 0, "W", va='center', fontsize=12, fontweight='bold')
-        ax.text(0, -1.1, "S", ha='center', fontsize=12, fontweight='bold')
-        ax.text(x_qibla * 1.1, y_qibla * 1.1, "Qiblat", ha='center', fontsize=12, fontweight='bold', color='green')
+        ax.text(0, 1.1, "U", ha='center', fontsize=12, fontweight='bold', color='red')
+        ax.text(1.1, 0, "T", va='center', fontsize=12, fontweight='bold')
+        ax.text(-1.15, 0, "B", va='center', fontsize=12, fontweight='bold')
+        ax.text(0, -1.15, "S", ha='center', fontsize=12, fontweight='bold')
+        ax.text(x_qibla * 1.2, y_qibla * 1.2, "Kiblat", ha='center', fontsize=12, fontweight='bold', color='green')
         
         plt.draw()
         plt.pause(5)
