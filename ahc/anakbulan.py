@@ -372,7 +372,7 @@ def crescent_data(hijri_year, hijri_month, latitude, longitude, elevation, time_
 	print ('\n')
 	print ('                       Data Hilal bagi %s %d' % (hijri_months_string[int(hijri_month)-1],hijri_year))
 	print ("          menggunakan metod pengiraan Accurate Hijri Calculator (AHC)")
-	print ('\n')
+	print ('                                    @duokino\n')
 	#print ('- Pengiraan dibuat semasa matahari terbenam pada jam %02d:%02d:%02d pada tarikh %d-%d-%d' % (sunset_local.hour,sunset_local.minute,sunset_local.second,calc_ijtima_local.day,calc_ijtima_local.month,calc_ijtima_local.year))
 	print ('  Pengiraan dibuat semasa matahari terbenam pada jam %02d:%02d:%02d pada tarikh %d-%d-%d' % (sunset_local.hour,sunset_local.minute,sunset_local.second,sunset_local.day,sunset_local.month,sunset_local.year))
 	print ('')
