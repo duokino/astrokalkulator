@@ -81,6 +81,7 @@ def generate_monthly_prayer_times(year, month, latitude, longitude, elevation, t
     month_name = malay_months_abbr[datetime(year, month, 1).strftime('%B')]
     print(f"\n{'Waktu Solat bagi bulan ' + month_name + ' ' + str(year):^82}")
     print(f"{'bagi kawasan ' + loc_name:^82}")
+    print("                                    @duokino")
     print("=" * 82)
     print("  Tarikh     Subuh       Syuruk      Zohor        Asar       Maghrib     Isyak")
     print("-" * 82)
