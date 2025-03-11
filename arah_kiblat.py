@@ -54,11 +54,11 @@ def plot_shadow_direction(location, location_data, qibla_azimuth, original_date_
     ax.set_yticks([])
     ax.set_aspect('equal')
     
-    btn_realtime_ax = plt.axes([0.3, 0.05, 0.4, 0.075])
+    btn_realtime_ax = plt.axes([0.35, 0.23, 0.2, 0.05])
     btn_realtime = Button(btn_realtime_ax, "Realtime: OFF", color='lightgrey')
     btn_realtime.on_clicked(toggle_realtime)
     
-    btn_exit_ax = plt.axes([0.75, 0.05, 0.2, 0.075])
+    btn_exit_ax = plt.axes([0.6, 0.23, 0.1, 0.05])
     btn_exit = Button(btn_exit_ax, "TUTUP", color='red')
     btn_exit.on_clicked(exit_program)
     
@@ -78,6 +78,7 @@ def plot_shadow_direction(location, location_data, qibla_azimuth, original_date_
         ax.set_yticks([])
         ax.set_aspect('equal')
         ax.set_title(f"Arah Bayang-Bayang Matahari\n{location_data['remarks']}\nTarikh: {date_time.strftime('%Y-%m-%d')}  Masa: {date_time.strftime('%I:%M:%S %p')}\nArah Kiblat: {qibla_azimuth:.2f}°")
+        fig.text(0.52, 0.16, "Ini merupakan janaan dari python menggunakan pengiraan ahc\nbagi menentukan arah kiblat berpandukan bayang-bayang matahari\n@duokino", ha='center', fontsize=10, style='italic', color='gray')
         
         circle = plt.Circle((0, 0), 1, color='black', fill=False, linewidth=1.5)
         ax.add_patch(circle)
