@@ -104,6 +104,7 @@ def get_prayer_times(year, month, day, latitude, longitude, elevation, time_zone
     print(f"   pada hari {day_name}, {day} {month_name} {year}")
     print("           bagi kawasan")
     print(f"{wrapped_loc_name}")
+    print("             @duokino")
     print("====================================")
     print(f"        Subuh    : {format_time(fajr_local)}")
     print(f"        Syuruk   : {format_time(sunrise_local)}")
