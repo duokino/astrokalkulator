@@ -121,6 +121,7 @@ def plot_sun_moon(date, latitude, longitude, elevation, timezone, location_label
 
         ax.set_title(f"Kedudukan Matahari dan Bulan\nTarikh: {day} {month_name} {year}  Masa: {hour_12}:{minute:02d} {am_pm}\n{location_label}\nLatitude: {latitude}°  Longitude: {longitude}°  Elevation: {elevation}m", pad=20)
         ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.0), ncol=2, frameon=True)
+        fig.text(0.52, 0.07, "Ini merupakan janaan dari python menggunakan pengiraan ahc\nbagi menentukan kedudukan matahari dan bulan bagi melihat kemungkinan kenampakan hilal", ha='center', fontsize=10, style='italic', color='gray')
         update_labels()
         fig.canvas.draw()
     
