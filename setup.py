@@ -1,6 +1,6 @@
 import subprocess
 import sys
-from tqdm import tqdm
+import time
 
 # List of dependencies from the setup.py
 dependencies = [
@@ -13,16 +13,28 @@ dependencies = [
     "matplotlib"
 ]
 
-# Function to install a single package with progress bar
-def install_package(package):
+# Simple progress bar function
+def show_progress_bar(task, total, current):
+    bar_length = 50
+    progress = int(bar_length * current / total)
+    percent = int(100 * current / total)
+    bar = "█" * progress + "-" * (bar_length - progress)
+    sys.stdout.write(f"\r{task} |{bar}| {percent}%")
+    sys.stdout.flush()
+
+# Function to install a single package
+def install_package(package, index, total):
     try:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+        show_progress_bar(f"Installing {package}", total, index)
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        sys.stdout.write("\r" + " " * 120 + "\r")  # Clear the line
+        print(f"✅ {package} installed successfully!")
     except subprocess.CalledProcessError:
-        print(f"\n❌ Failed to install {package}. Please check for errors.")
+        print(f"\n{Fore.RED}❌ Failed to install {package}. Please check for errors.{Style.RESET_ALL}\n")
 
-# Install dependencies with progress bar
-print("\n📦 Starting dependencies installation...\n")
-for package in tqdm(dependencies, desc="Installing", unit="pkg", position=0, leave=True, ncols=100, bar_format="{l_bar}{bar:50}{r_bar}{bar:-10b}"):
-    install_package(package)
+# Install dependencies with simple progress bar
+print(f"\n🚀 Starting dependencies installation...")
+for i, package in enumerate(dependencies, start=1):
+    install_package(package, i, len(dependencies))
 
-print("\n✅ All dependencies installed successfully!")
+print(f"\n🎉 All dependencies installed successfully!")
