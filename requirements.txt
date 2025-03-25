@@ -5,3 +5,6 @@ pytz
 pymeeus 
 astropy
 matplotlib
+geopandas
+requests
+colorama
