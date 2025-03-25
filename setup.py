@@ -5,12 +5,15 @@ import time
 # List of dependencies from the setup.py
 dependencies = [
     "numpy",
-    "skyfield==1.45",
+    "skyfield",
     "datetime",
     "pytz",
     "pymeeus",
     "astropy",
-    "matplotlib"
+    "matplotlib",
+    "geopandas",
+    "requests",
+    "colorama"
 ]
 
 # Simple progress bar function
@@ -30,7 +33,7 @@ def install_package(package, index, total):
         sys.stdout.write("\r" + " " * 120 + "\r")  # Clear the line
         print(f"✅ {package} installed successfully!")
     except subprocess.CalledProcessError:
-        print(f"\n{Fore.RED}❌ Failed to install {package}. Please check for errors.{Style.RESET_ALL}\n")
+        print(f"\n❌ Failed to install {package}. Please check for errors.\n")
 
 # Install dependencies with simple progress bar
 print(f"\n🚀 Starting dependencies installation...")
