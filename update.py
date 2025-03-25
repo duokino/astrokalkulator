@@ -113,8 +113,8 @@ def check_for_bsp_update():
         print("\nFailed to fetch data from NAIF server.")
 
 def main():
-    update_location_file()
     check_for_bsp_update()
+    update_location_file()
 
 if __name__ == "__main__":
     main()
