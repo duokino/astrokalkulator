@@ -1,55 +1,52 @@
 # Astro Kalkulator
 
+Boleh mencari data berkenaan:
+- Ijtimak
+- Kedudukan Matahari dan Bulan pada waktu Ijtimak
+- Waktu Solat
+- Arah Kiblat menggunakan bayang-bayang Matahari
+
 Tutorial untuk setup boleh lihat di YouTube https://www.youtube.com/watch?v=oeXbSYYx7hI         
 
-## Developer
-This software is developed and maintained by [Abdurro'uf](https://aabdurrouf.github.io/), who is currently working as an astronomy researcher at the Department of Physics and Astronomy, The Johns Hopkins University and The Space Telescope Science Institute (STScI). Any feedback, inquiry, or bugs report can be sent via email to abdurroufastro@gmail.com or fabdurr1@jhu.edu.
- 
 ## Installation
-To install AHC, first clone AHC package into your desired directory (in your local machine) and then enter `ahc` directory and install. You can do it using the following commands 
+Langkah pertama adalah memastikan sistem mempunyai Python
+
+Kemudian copy dulu fail ke dalam folder yang dikehendaki
 
 ```
-git clone https://github.com/accuhijri/ahc.git
-cd ahc
-python -m pip install .
+git clone https://github.com/duokino/astrokalkulator.git
 ```
 
-To use AHC, you need to put `de421.bsp` file in wherever directory you are working. This file is included in the `ahc` package and can be copied to your working directory. An alternative way would be to download this file from NASA website using the following command
+Pastikan anda menjalankan file setup.py supaya ia install kesemua file dependency dan database berkaitan
 
 ```
-wget https://ssd.jpl.nasa.gov/ftp/eph/planets/bsp/de421.bsp
+python setup.py
 ```
 
-Last but not least, you need to install [geopandas](https://geopandas.org/en/stable/) if you intend to produce crescent visibility map with AHC. To install it, you can use the following command, assuming you have `conda` installed in your machine.
+Untuk memastikan anda menggunakan database kedudukan objek langit (dexxx.bsp) dan juga location.txt yang terkini, disarankan untuk menjalankan file update.py
 
 ```
-conda install -c conda-forge geopandas
+python update.py
 ```
 
-## Some features
+## Fungsi yang boleh digunakan
 
-### 1. Calculate the data of hilal (i.e., crescent)
+### 1. Mendapatkan maklumat berkenaan Ijtimak
+
+lokasi default adalah Batu Pahat
+masukkan tahun hijri dan bulan hijri
 ```ruby
-from ahc.hilal import hilal
-
-hijri_year = 1444
-hijri_month = 10        # syawal is 10th month in Hijri calendar
-calculate_maps = True 
-plus_1day = True
-hl = hilal(hijri_year=hijri_year, hijri_month=hijri_month, calculate_maps=calculate_maps, plus_1day=plus_1day)
+python ijtimak.py 1446 9
 ```
 
+Sekiranya hendak menentukan lokasi berbeza dari default
 ```ruby
-latitude = 3.595196
-longitude = 98.672223
-elevation = 23.0
-time_zone_str = 'Asia/Jakarta'
-loc_name = 'INDONESIA Medan'
-hl.calculate_hilal_data(latitude, longitude, elevation, time_zone_str, loc_name=loc_name, delta_day=0)
+python ijtimak.py --location=telukkemang
 ```
-<img src="figures/hd1.png" width=600 height=400>
 
-### 2. Get maps of moon properties 
+untuk database lokasi boleh didapati dari file database/location.txt
+
+### 2. Melihat kedudukan Matahri dan Bulan ketika Ijtimak 
 
 This include maps of moon altitude, elongation (topocentric and geocentric), moon-sun altitude difference (arc of vision; ARCV), moon width, and moon age. Below is an example line of script to get the map of moon altitude.
 ```ruby
