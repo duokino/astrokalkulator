@@ -23,12 +23,14 @@ Pastikan anda menjalankan file setup.py supaya ia install kesemua file dependenc
 ```ruby
 python setup.py
 ```
+<img src="images/setup.jpg" width=900 height=450>
 
 Untuk memastikan anda menggunakan database kedudukan objek langit (dexxx.bsp) dan juga location.txt yang terkini, disarankan untuk menjalankan file update.py
 
 ```ruby
 python update.py
 ```
+<img src="images/update.jpg" width=900 height=450>
 
 
 ## Fungsi yang boleh digunakan
