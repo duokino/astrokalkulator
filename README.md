@@ -23,14 +23,14 @@ Pastikan anda menjalankan file setup.py supaya ia install kesemua file dependenc
 ```ruby
 python setup.py
 ```
-<img src="images/setup.jpg" width=800 height=450>
+<img src="images/setup.jpg">
 
 Untuk memastikan anda menggunakan database kedudukan objek langit (dexxx.bsp) dan juga location.txt yang terkini, disarankan untuk menjalankan file update.py
 
 ```ruby
 python update.py
 ```
-<img src="images/update.jpg" width=900 height=450>
+<img src="images/update.jpg">
 
 
 ## Fungsi yang boleh digunakan
@@ -42,7 +42,7 @@ lokasi default adalah Batu Pahat. Masukkan tahun hijri dan bulan hijri
 ```ruby
 python ijtimak.py 1446 9
 ```
-<img src="images/ijtimak.jpg" width=900 height=450>
+<img src="images/ijtimak.jpg">
 
 Sekiranya hendak menentukan lokasi berbeza dari default
 ```ruby
@@ -63,7 +63,7 @@ lokasi default adalah Batu Pahat. masukkan tarikh dalam format (YYYYMMDD)
 ```ruby
 python tunjuk_hilal.py --date=20250228
 ```
-<img src="images/tunjuk_hilal.jpg" width=600 height=500>
+<img src="images/tunjuk_hilal.jpg">
 
 
 ### 3. Arah Kiblat menggunakan bayang-bayang Matahari 
@@ -72,7 +72,7 @@ lokasi default adalah Batu Pahat dengan menggunakan masa realtime
 ```ruby
 python arah_kiblat.py
 ```
-<img src="images/arah_kiblat.jpg" width=500 height=450>
+<img src="images/arah_kiblat.jpg">
 
 Sekiranya hendak mengubah lokasi berdasarkan dalam database/location.txt
 ```ruby
