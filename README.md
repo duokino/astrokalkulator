@@ -38,7 +38,7 @@ lokasi default adalah Batu Pahat. Masukkan tahun hijri dan bulan hijri
 ```ruby
 python ijtimak.py 1446 9
 ```
-<img src="images/ijtimak.jpg" width=900 height=420>
+<img src="images/ijtimak.jpg" width=900 height=450>
 
 Sekiranya hendak menentukan lokasi berbeza dari default
 ```ruby
