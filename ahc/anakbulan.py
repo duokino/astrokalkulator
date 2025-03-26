@@ -388,7 +388,7 @@ def crescent_data(hijri_year, hijri_month, latitude, longitude, elevation, time_
 		print ('   - Time zone: '+time_zone_str+' +'+print_timedelta_tz(delta_time_tz))
 	#print ('   - Keadaan Pembiasan Atmosfera => Suhu: %d °C  Tekanan: %d mb' % (temperature_C, pressure_mbar))
 	print ('\n============================================================================================\n')
-	print ('  Waktu Ijtima: %d-%d-%d %02d:%02d:%02d (Waktu Tempatan) atau %d-%d-%d %02d:%02d:%02d UTC' % (ijtima_local.day,ijtima_local.month,ijtima_local.year,ijtima_local.hour,ijtima_local.minute,ijtima_local.second,ijtima_utc.day,ijtima_utc.month,ijtima_utc.year,ijtima_utc.hour,ijtima_utc.minute,ijtima_utc.second))
+	print ('  Waktu Ijtimak: %d-%d-%d %02d:%02d:%02d (Waktu Tempatan) atau %d-%d-%d %02d:%02d:%02d UTC' % (ijtima_local.day,ijtima_local.month,ijtima_local.year,ijtima_local.hour,ijtima_local.minute,ijtima_local.second,ijtima_utc.day,ijtima_utc.month,ijtima_utc.year,ijtima_utc.hour,ijtima_utc.minute,ijtima_utc.second))
 	print ('\n  - Waktu Matahari terbenam: %02d:%02d:%02d          - Waktu Bulan terbenam        : %02d:%02d:%02d' % (sunset_local.hour,sunset_local.minute,sunset_local.second, moonset_local.hour,moonset_local.minute,moonset_local.second))
 	print ('  - Altitude Matahari      : '+print_angle(sun_alt)+'       - Umur Bulan                  : '+print_timedelta(moon_age))
 	print ('  - Azimut Matahari        : '+print_angle(sun_az)+'      - Tempoh mencerap Bulan       : '+print_timedelta(moon_lag_time))
