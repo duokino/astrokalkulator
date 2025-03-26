@@ -61,7 +61,7 @@ lokasi default adalah Batu Pahat. masukkan tarikh dalam format (YYYYMMDD)
 ```ruby
 python tunjuk_hilal.py --date=20250228
 ```
-<img src="images/tunjuk_hilal.jpg" width=900 height=450>
+<img src="images/tunjuk_hilal.jpg" width=600 height=450>
 
 
 ### 3. Arah Kiblat menggunakan bayang-bayang Matahari 
@@ -70,7 +70,7 @@ lokasi default adalah Batu Pahat dengan menggunakan masa realtime
 ```ruby
 python arah_kiblat.py
 ```
-<img src="images/arah_kiblat.jpg" width=900 height=450>
+<img src="images/arah_kiblat.jpg" width=600 height=450>
 
 Sekiranya hendak mengubah lokasi berdasarkan dalam database/location.txt
 ```ruby
