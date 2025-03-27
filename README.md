@@ -85,9 +85,9 @@ python arah_kiblat.py --date=20250327 --time=11:00:00
 ```
 
 
-### 4. Waktu Solat
+### 4. Waktu Solat Sebulan
 
-Boleh menjana waktu solat mengikut kawasan.
+Boleh menjana waktu solat untuk sebulan mengikut kawasan.
 
 Untuk menjana waktu solat untuk sebulan, lokasi default adalah Batu Pahat. Secara default adalah bulan semasa.
 ```ruby
@@ -105,3 +105,33 @@ Sekiranya hendak menukar lokasi, boleh rujuk senarai di  database/location.txt
 python waktu_solat.py 2025 3 --location=paritraja
 ```
 
+Sekiranya hendak menukar lokasi dengan memasukkan koordinat
+```ruby
+python waktu_solat.py --latitude 2.032 --longitude 103.317 --timezone Asia/Kuala_Lumpur
+```
+
+
+### 5. Waktu Solat Sehari
+
+Boleh menjana waktu solat sehari mengikut kawasan.
+
+Untuk menjana waktu solat untuk sehari, lokasi default adalah Batu Pahat. Secara default adalah hari semasa.
+```ruby
+python waktu_solat_hari.py
+```
+<img src="images/waktu_solat_hari.jpg">
+
+Sekiranya hendak menjana tarikh tertentu, masukkan tarikh dalam format YYYYY-MM-DD
+```ruby
+python waktu_solat_hari.py --date=2025-03-21
+```
+
+Sekiranya hendak menukar lokasi, boleh rujuk senarai di  database/location.txt
+```ruby
+python waktu_solat_hari.py --location=paritraja
+```
+
+Sekiranya hendak menukar lokasi dengan memasukkan koordinat
+```ruby
+python waktu_solat_hari.py --latitude 2.032 --longitude 103.317 --timezone Asia/Kuala_Lumpur
+```
