@@ -104,12 +104,12 @@ parser.add_argument("--timezone", default="Asia/Kuala_Lumpur", type=str, help="T
 args = parser.parse_args()
 locations = load_locations("database/location.txt")
 
-if args.location and args.location in locations:
+if args.latitude and args.longitude and args.timezone:
+    latitude, longitude, elevation, time_zone = args.latitude, args.longitude, args.elevation or 10, args.timezone
+    loc_name = f"Latitud:{latitude}, Longitud:{longitude}"
+elif args.location and args.location in locations:
     loc_data = locations[args.location]
     latitude, longitude, elevation, time_zone, loc_name = loc_data["latitude"], loc_data["longitude"], loc_data.get("elevation", 10), loc_data["timezone"], loc_data.get("remarks", args.location)
-elif args.latitude and args.longitude and args.timezone:
-    latitude, longitude, elevation, time_zone = args.latitude, args.longitude, args.elevation or 10, args.timezone
-    loc_name = f"Latitude: {latitude}, Longitude: {longitude}, Elevation: {elevation}m"
 else:
     print("Error: Provide either --location or --latitude, --longitude, --timezone.")
     exit(1)
