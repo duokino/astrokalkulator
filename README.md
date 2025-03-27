@@ -9,7 +9,7 @@ Boleh mencari data berkenaan:
 Tutorial untuk setup boleh lihat di YouTube https://www.youtube.com/watch?v=oeXbSYYx7hI         
 
 ## Installation
-Langkah pertama adalah memastikan sistem mempunyai Python
+Langkah pertama adalah memastikan sistem mempunyai Python. Boleh dapatkan di laman webrasmi Python di https://www.python.org/downloads/
 
 Kemudian copy dulu fail ke dalam folder yang dikehendaki
 
