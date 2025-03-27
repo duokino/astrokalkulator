@@ -161,14 +161,14 @@ def plot_sun_moon(date, latitude, longitude, elevation, timezone, location_label
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--date", required=True)
+    parser.add_argument("--date", required=True, help="YYYYMMDD")
     parser.add_argument("--location", default="bp")
     parser.add_argument("--latitude", type=float)
     parser.add_argument("--longitude", type=float)
     parser.add_argument("--elevation", type=float)
     parser.add_argument("--timezone", default="Asia/Kuala_Lumpur")
     parser.add_argument("--kriteria", choices=["KIR0", "KIR1", "KIR2"], default="KIR2")
-    parser.add_argument("--time")
+    parser.add_argument("--time", help="HHMM")
     
     args = parser.parse_args()
     if args.location:
