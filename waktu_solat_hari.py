@@ -111,7 +111,7 @@ def get_prayer_times(year, month, day, latitude, longitude, elevation, time_zone
     print(f"        Zohor    : {format_time(dhuhr_local)}")
     print(f"        Asar     : {format_time(asr_local)}")
     print(f"        Maghrib  : {format_time(maghrib_local)}")
-    print(f"        Isha     : {format_time(isha_local)}")
+    print(f"        Isyak    : {format_time(isha_local)}")
 
 # Argument Parser
 parser = argparse.ArgumentParser(description="Mendapatkan waktu solat berdasarkan lokasi dan tarikh.")
