@@ -3,8 +3,8 @@
 Boleh mencari data berkenaan:
 - Ijtimak
 - Kedudukan Matahari dan Bulan pada waktu Ijtimak
-- Waktu Solat
 - Arah Kiblat menggunakan bayang-bayang Matahari
+- Waktu Solat
 
 Tutorial untuk setup boleh lihat di YouTube https://www.youtube.com/watch?v=oeXbSYYx7hI         
 
@@ -59,7 +59,7 @@ untuk database lokasi boleh didapati dari file database/location.txt
 
 ### 2. Melihat kedudukan Matahri dan Bulan ketika Ijtimak 
 
-lokasi default adalah Batu Pahat. masukkan tarikh dalam format (YYYYMMDD)
+lokasi default adalah Batu Pahat. Masukkan tarikh dalam format (YYYYMMDD)
 ```ruby
 python tunjuk_hilal.py --date=20250228
 ```
@@ -83,3 +83,25 @@ Sekiranya hendak memasukkan tarikh dan masa tertentu menggunakan format (YYYY-MM
 ```ruby
 python arah_kiblat.py --date=20250327 --time=11:00:00
 ```
+
+
+### 4. Waktu Solat
+
+Boleh menjana waktu solat mengikut kawasan.
+
+Untuk menjana waktu solat untuk sebulan, lokasi default adalah Batu Pahat. Secara default adalah bulan semasa.
+```ruby
+python waktu_solat.py
+```
+<img src="images/waktu_solat.jpg">
+
+Sekiranya hendak menjana bulan tertentu, masukkan tahun dan bulan
+```ruby
+python waktu_solat.py 2025 3
+```
+
+Sekiranya hendak menukar lokasi, boleh rujuk senarai di  database/location.txt
+```ruby
+python waktu_solat.py 2025 3 --location=paritraja
+```
+
